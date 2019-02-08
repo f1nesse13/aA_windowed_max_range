@@ -7,7 +7,7 @@ def max_windowed_range(array, window_size)
     if check_arr.length == window_size
       diff = check_arr.max - check_arr.min
       if diff > current_max_range
-        current_max_range = diff 
+        current_max_range = diff
         best_arr = check_arr.dup
       end
       check_arr.shift
