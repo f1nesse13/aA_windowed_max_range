@@ -9,7 +9,6 @@ class MyStack
 
   def pop
     @store.pop
-    self
   end
 
   def empty?

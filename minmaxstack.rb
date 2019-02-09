@@ -35,6 +35,8 @@ class MinMaxStack
       max: max?(val)
     })
   end
+  
+  private
 
   def min?(val)
       empty? ? val : [min, val].min
