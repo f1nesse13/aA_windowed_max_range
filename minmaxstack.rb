@@ -1,3 +1,5 @@
+require_relative 'mystack'
+
 class MinMaxStack
 
   def initialize
@@ -5,7 +7,7 @@ class MinMaxStack
   end
 
   def size
-    @store.length
+    @store.size
   end
 
   def empty?
@@ -28,11 +30,11 @@ class MinMaxStack
     @store.pop[:value] unless empty?
   end
 
-  def push(value)
+  def push(val)
     @store.push({
-      value: val,
+      max: max?(val),
       min: min?(val),
-      max: max?(val)
+      value: val
     })
   end
   

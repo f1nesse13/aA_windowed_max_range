@@ -1,3 +1,4 @@
+require_relative 'minmaxstack'
 class MinMaxStackQueue
 
   def initialize
@@ -6,7 +7,7 @@ class MinMaxStackQueue
   end
 
   def size
-    @in.length + @out.length
+    @in.size + @out.size
   end
 
   def empty?
@@ -14,7 +15,8 @@ class MinMaxStackQueue
   end
 
   def dequeue
-    @out.empty? ? to_queue : @out.pop
+    to_queue if @out.empty?
+    @out.pop
   end
 
   def enqueue(val)
@@ -25,14 +27,14 @@ class MinMaxStackQueue
     maxes = []
     maxes << @in.max unless @in.empty?
     maxes << @out.max unless @out.empty?
-    maxes
+    maxes.max
   end
 
   def min
     mins = []
     mins << @in.min unless @in.empty?
     mins << @out.min unless @out.empty?
-    mins
+    mins.min
   end
 
   private

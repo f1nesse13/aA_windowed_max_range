@@ -7,11 +7,11 @@ class StackQueue
   end
 
   def size
-    @in.length + @out.length
+    @in.size + @out.size
   end
 
   def empty?
-    @store.empty?
+    @in.empty? && @out.empty?
   end
   
   def enqueue(val)
@@ -19,9 +19,12 @@ class StackQueue
   end
 
   def dequeue
-    @out.empty? ? to_queue : @out.pop 
+    to_queue if @out.empty?
+    @out.pop 
   end
 
+  private
+  
   def to_queue
     @out.push(@in.pop) until @in.empty?
   end
